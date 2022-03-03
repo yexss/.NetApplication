@@ -1,0 +1,15 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Details";
+    var PhotoPath = Model.Photo ?? "Diana.png";
+}
+
+<h1>Details</h1>
+
+<p>@Model.Name</p>
+<p>@Model.Email</p>
+<p>@Model.ClassName</p>
+<img style="width:200px" src="~/images/@PhotoPath"  asp-append-version="true" />
+
+<a asp-action="Index">back to list</a>

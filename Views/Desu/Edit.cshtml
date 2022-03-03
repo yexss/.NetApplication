@@ -1,0 +1,49 @@
+﻿@model StudentEditViewModel
+@{
+    ViewData["Title"] = "Edit";
+    var Photo = Model.ExistingPhoto ?? "Diana.png";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+    <div asp-validation-summary=All></div>
+
+    <input hidden asp-for="Id" />
+    <input hidden asp-for="ExistingPhoto" />
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <select asp-for="ClassName" asp-items="Html.GetEnumSelectList<ClassNameEnum>()">
+            <option value="">请选择</option>
+        </select>
+        <span asp-validation-for="ClassName"></span>
+    </div>
+
+    <div class="mt-3">
+        <label class="custom-file-label" asp-for="Photo"></label>
+        <input class="form-control custom-file-input" asp-for="Photo" />
+        <span asp-validation-for="Photo"></span>
+    </div>
+
+    <img style="width:200px" src="~/images/@Photo" asp-append-version="true"  />
+
+    <div>
+        <button>submit</button>
+        <a asp-action="Index">取消</a>
+    </div>
+
+</form>
+

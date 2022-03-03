@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Student>
+
+<h1>Test/IndexList</h1>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>名字</th>
+        <th>邮箱</th>
+        <th>班级</th>
+    </thead>
+    <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.ClassName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

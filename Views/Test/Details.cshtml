@@ -1,0 +1,32 @@
+﻿@model Student
+@{
+    var student = ViewData["Student"] as Student;
+    //Layout = null;
+    Layout = "_TestLayout";
+}
+
+<h1>@ViewData["PageTitle"]</h1>
+
+<div>姓名：@student.Name</div>
+<div>邮箱：@student.Email</div>
+<div>班级：@student.ClassName</div>
+
+<br />
+
+<h1>@ViewBag.PageTitle</h1>
+
+<div>姓名：@ViewBag.Student.Name</div>
+<div>邮箱：@ViewBag.Student.Email</div>
+<div>班级：@ViewBag.Student.ClassName</div>
+
+<br />
+
+<h1>Strong</h1>
+
+<div>姓名：@Model.Name</div>
+<div>邮箱：@Model.Email</div>
+<div>班级：@Model.ClassName</div>
+
+@*@section Js{
+    <script src="~/js/CustomScript.js"></script>
+}*@
